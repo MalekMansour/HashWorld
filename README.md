@@ -2,7 +2,7 @@
 
 HashWorld is a command-line tool written in Bash that allows you to quickly hash passwords using various algorithms. It provides a simple interface to hash passwords and view the hashed values for different hashing algorithms.
 
-![HashWorld Screenshot](hashworld-screenshot.png)
+![HashWorld Screenshot](screenshothashworld.png.png)
 
 ## Features
 

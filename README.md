@@ -19,7 +19,7 @@ HashWorld is a command-line tool written in Bash that allows you to quickly hash
 
 1. Clone the repository or download the `hashworld.sh` script.
     ```
-    git clone 
+    git clone https://github.com/MalekMansour/HashWorld.git
     ```
 2. Open a terminal and navigate to the directory where the `hashworld.sh` script is located.
 3. Make the script executable by running the following command:

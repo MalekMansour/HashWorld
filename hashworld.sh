@@ -29,11 +29,6 @@ hash_password() {
     echo "blake2b-512: $(echo -n "$password" | openssl dgst -blake2b512 | awk '{print $2}')"
     echo "blake2s-256: $(echo -n "$password" | openssl dgst -blake2s256 | awk '{print $2}')"
     echo "sm3: $(echo -n "$password" | openssl dgst -sm3 | awk '{print $2}')"
-    echo "skein512-512: $(echo -n "$password" | openssl dgst -skein512 | awk '{print $2}')"
-    echo "skein1024-1024: $(echo -n "$password" | openssl dgst -skein1024 | awk '{print $2}')"
-    echo "gost: $(echo -n "$password" | openssl dgst -md_gost | awk '{print $2}')"
-    echo "crc32: $(echo -n "$password" | openssl dgst -crc32 | awk '{print $2}')"
-    echo "adler32: $(echo -n "$password" | openssl dgst -adler32 | awk '{print $2}')"
     echo "sum: $(echo -n "$password" | cksum | awk '{print $1}')"
 }
 

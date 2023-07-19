@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Display the banner
 echo "▄▀▀▄ ▄▄   ▄▀▀█▄   ▄▀▀▀▀▄  ▄▀▀▄ ▄▄   ▄▀▀▄    ▄▀▀▄  ▄▀▀▀▀▄   ▄▀▀▄▀▀▀▄  ▄▀▀▀▀▄     ▄▀▀█▄▄"
 echo "█  █   ▄▀ ▐ ▄▀ ▀▄ █   ▐ █  █   ▄▀ █   █    ▐  █ █      █ █   █   █ █    █     █ ▄▀   █"
 echo "▐  █▄▄▄█    █▄▄▄█    ▀▄   ▐  █▄▄▄█  ▐  █        █ █      █ ▐  █▀▀█▀  ▐    █     ▐ █    █"
@@ -8,8 +7,8 @@ echo "   █   █   ▄▀   █ ▀▄   █     █   █    █   ▄    █
 echo "  ▄▀  ▄▀  █   ▄▀   █▀▀▀     ▄▀  ▄▀     ▀▄▀ ▀▄ ▄▀    ▀▀▀▀   █     █     ▄▀▄▄▄▄▄▄▀ ▄▀▄▄▄▄▀"
 echo " █   █    ▐   ▐    ▐       █   █             ▀             ▐     ▐     █        █     ▐"
 echo " ▐   ▐                     ▐   ▐                                       ▐        ▐"
+echo " HashWorld v.1.0.2 - Author : Malek Mansour 
 
-# Function to hash the password
 hash_password() {
     local password=$1
 
@@ -21,31 +20,30 @@ hash_password() {
     echo "sha256: $(echo -n "$password" | sha256sum | awk '{print $1}')"
     echo "sha384: $(echo -n "$password" | sha384sum | awk '{print $1}')"
     echo "sha512: $(echo -n "$password" | sha512sum | awk '{print $1}')"
+    echo "ripemd160: $(echo -n "$password" | openssl dgst -ripemd160 | awk '{print $2}')"
+    echo "whirlpool: $(echo -n "$password" | openssl dgst -whirlpool | awk '{print $2}')"
+    echo "sha3-224: $(echo -n "$password" | openssl dgst -sha3-224 | awk '{print $2}')"
+    echo "sha3-256: $(echo -n "$password" | openssl dgst -sha3-256 | awk '{print $2}')"
+    echo "sha3-384: $(echo -n "$password" | openssl dgst -sha3-384 | awk '{print $2}')"
+    echo "sha3-512: $(echo -n "$password" | openssl dgst -sha3-512 | awk '{print $2}')"
+    echo "blake2b-512: $(echo -n "$password" | openssl dgst -blake2b512 | awk '{print $2}')"
+    echo "blake2s-256: $(echo -n "$password" | openssl dgst -blake2s256 | awk '{print $2}')"
+    echo "sm3: $(echo -n "$password" | openssl dgst -sm3 | awk '{print $2}')"
+    echo "skein512-512: $(echo -n "$password" | openssl dgst -skein512 | awk '{print $2}')"
+    echo "skein1024-1024: $(echo -n "$password" | openssl dgst -skein1024 | awk '{print $2}')"
+    echo "gost: $(echo -n "$password" | openssl dgst -md_gost | awk '{print $2}')"
+    echo "crc32: $(echo -n "$password" | openssl dgst -crc32 | awk '{print $2}')"
+    echo "adler32: $(echo -n "$password" | openssl dgst -adler32 | awk '{print $2}')"
+    echo "sum: $(echo -n "$password" | cksum | awk '{print $1}')"
 }
 
-# Function to dehash the password
-dehash_password() {
-    local hashed_password=$1
-
-    echo "Dehashing password: $hashed_password"
-
-    echo "md5: $(echo -n "$hashed_password" | md5sum -d | awk '{print $1}')"
-    echo "sha1: $(echo -n "$hashed_password" | sha1sum -d | awk '{print $1}')"
-    echo "sha224: $(echo -n "$hashed_password" | sha224sum -d | awk '{print $1}')"
-    echo "sha256: $(echo -n "$hashed_password" | sha256sum -d | awk '{print $1}')"
-    echo "sha384: $(echo -n "$hashed_password" | sha384sum -d | awk '{print $1}')"
-    echo "sha512: $(echo -n "$hashed_password" | sha512sum -d | awk '{print $1}')"
-}
-
-# Main script
 while true; do
     echo
     echo "Main Menu:"
     echo "1. Hash password"
-    echo "2. Dehash password"
-    echo "3. Exit"
+    echo "2. Exit"
 
-    read -p "Enter your choice (1, 2, or 3): " choice
+    read -p "Enter your choice (1 or 2): " choice
 
     case $choice in
         "1")
@@ -53,10 +51,6 @@ while true; do
             hash_password "$password"
             ;;
         "2")
-            read -p "Enter the hashed password: " hashed_password
-            dehash_password "$hashed_password"
-            ;;
-        "3")
             echo "Exiting..."
             exit 0
             ;;

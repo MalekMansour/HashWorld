@@ -7,7 +7,7 @@ echo "   █   █   ▄▀   █ ▀▄   █     █   █    █   ▄    █
 echo "  ▄▀  ▄▀  █   ▄▀   █▀▀▀     ▄▀  ▄▀     ▀▄▀ ▀▄ ▄▀    ▀▀▀▀   █     █     ▄▀▄▄▄▄▄▄▀ ▄▀▄▄▄▄▀"
 echo " █   █    ▐   ▐    ▐       █   █             ▀             ▐     ▐     █        █     ▐"
 echo " ▐   ▐                     ▐   ▐                                       ▐        ▐"
-echo " HashWorld v.1.0.2 - Author : Malek Mansour 
+echo "HashWorld v.1.0.3 - Author : Malek Mansour"
 
 hash_password() {
     local password=$1

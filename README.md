@@ -28,7 +28,7 @@ HashWorld is a command-line tool written in Bash that allows you to quickly hash
     chmod +x hashworld.sh
     ```
 
-5. Run the script by executing the following command:
+5. Run the script by executing the following command: hahaha
 
     ```bash
     ./hashworld.sh
